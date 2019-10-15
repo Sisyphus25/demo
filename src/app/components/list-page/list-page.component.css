@@ -1,12 +1,10 @@
 .content {
-  height: 100%;
+  min-height: 100%;
 }
 
 .content-wrapper {
   max-width: 100%;
   height: 100%;
-  margin-top: -56px;
-  padding-top: 56px;
 }
 
 .interactive:hover {
@@ -14,7 +12,7 @@
 }
 
 .side-menu {
-  height: 100%;
+  min-height: 100%;
   padding: 30px 0;
   background-color: black;
   color: #dfdfdf;
@@ -71,7 +69,7 @@
 }
 
 .search-bar {
-  margin: 10px 0;
+  margin: 10px 0 5px 0;
   padding: 10px;
   width: 100%;
   background-color: #dfdfdf;
@@ -103,6 +101,7 @@
 
 .case-button {
   margin-right: 5px;
+  margin-top: 5px;
   background-color: #dfdfdf;
   border-radius: 0;
 }

@@ -1,5 +1,5 @@
 <div class="content">
-  <app-navbar clientName="Client"></app-navbar>
+  <app-navbar></app-navbar>
   <div class="content-wrapper">
     <div class="row" style="height:100%; max-width: 100%; margin: 0 !important;">
       <div class="side-menu d-none d-lg-block col-lg-2">
@@ -16,15 +16,15 @@
       <div class="list-container col-lg-10">
         <div class="list-filters">
           <div class="row" style="padding-bottom: 5px">
-            <div class="col-4 col-lg-2">
+            <div class="col-6 col-sm-4 col-lg-2">
               <div class="filter-title">Status</div>
               <div class="filter-status">{{caseStatus}} cases</div>
             </div>
-            <div class="col-4 col-lg-2">
+            <div class="col-6 col-sm-4 col-lg-2">
               <div class="filter-title">Country</div>
               <div class="filter-status">{{filteredCountries.length}} countries</div>
             </div>
-            <div class="col-4 col-lg-2">
+            <div class="col-12 col-sm-4 col-lg-2" style="display: flex; justify-content: center">
               <button mat-button (click)="resetFilters()">
                 Reset filters
               </button>
@@ -56,7 +56,7 @@
         </div>
         <div class="list-record">
           <div class="record-headers row">
-            <div class="header col-1 checkbox-cell">
+            <div class="header col-1 checkbox-cell" style="border-left:none">
               <mat-checkbox (change)="updateCheckList($event)"></mat-checkbox>
             </div>
             <div class="header col-lg-1 d-none d-lg-block">IMG</div>
