@@ -1,0 +1,124 @@
+.content {
+  height: 100%;
+}
+
+.content-wrapper {
+  max-width: 100%;
+  height: 100%;
+  margin-top: -56px;
+  padding-top: 56px;
+}
+
+.interactive:hover {
+  cursor: pointer;
+}
+
+.side-menu {
+  height: 100%;
+  padding: 30px 0;
+  background-color: black;
+  color: #dfdfdf;
+}
+
+.side-menu-option {
+   padding: 5px 40px;
+}
+
+.list-container {
+  background-color: #dfdfdf;
+  padding: 20px;
+}
+
+.list-filters {
+  background-color: white;
+  padding: 20px
+}
+
+.filter-title {
+  font-weight: bold;
+  color: #c91b26;
+  padding-bottom: 5px;
+}
+
+.filter-status {
+  color: grey;
+  text-decoration: underline;
+}
+
+.list-record {
+  margin: 20px 0;
+  background-color: white;
+}
+
+.record-headers {
+  margin: 0 !important;
+}
+
+.header {
+  border-left: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.cell {
+  padding: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+.search-bar {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  background-color: #dfdfdf;
+  box-shadow: none;
+  border: 1px solid #dfdfdf;
+}
+
+.checkbox-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pager {
+  background-color: white;
+  padding: 20px
+}
+
+.pager-button {
+  border: 1px solid #dfdfdf;
+  color: red;
+  background-color: white;
+  padding: 5px 10px;
+}
+
+.pager-button:hover {
+  background-color: #dfdfdf;
+}
+
+.case-button {
+  margin-right: 5px;
+  background-color: #dfdfdf;
+  border-radius: 0;
+}
+
+button:focus {
+  outline:0;
+}
+
+.case-button.selected {
+  background-color: black;
+  color: white
+}
+
+@media screen and (max-width: 992px) {
+  .content-wrapper {
+    margin-top: -42px;
+    padding-top: 42px;
+  }
+}

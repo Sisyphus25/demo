@@ -1,0 +1,38 @@
+.dialog-title {
+  color: #c91b26;
+  font-size: 20px;
+  width: 100%;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.form-title {
+  font-weight: bold;
+  color: #c91b26;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.form-error {
+  margin-top: -12px;
+  font-size: 12px;
+  color: red;
+  text-align: left;
+}
+
+.form-button-wrappper {
+  padding-top: 10px;
+  width: 100%;
+  border-top: 1px solid #dfdfdf;
+  display: flex;
+}
+
+.cancel-button {
+  background-color: #c91b26;
+  color: white;
+}
+
+.submit-button {
+  background-color: green;
+  color: white;
+}

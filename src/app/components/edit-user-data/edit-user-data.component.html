@@ -1,0 +1,51 @@
+<div>
+  <div class="dialog-title">
+    Edit {{user.firstName}} {{user.lastName}} details
+  </div>
+  <div class="form-title">
+    User Details
+  </div>
+  <form [formGroup]="dataForm" (ngSubmit)="updateDetails()">
+    <div>
+      <mat-form-field>
+        <input matInput type="text" formControlName="firstName" placeholder="First Name"/>
+      </mat-form-field>
+      <div class="form-error" *ngIf="submitted && form.firstName.errors">
+        <div *ngIf="form.firstName.errors?.required">First Name is required</div>
+      </div>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput type="text" formControlName="lastName" placeholder="Last Name"/>
+      </mat-form-field>
+      <div>
+        <div class="form-error" *ngIf="form.lastName.errors?.required">Last Name is required</div>
+      </div>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput type="text" formControlName="phoneNumber" placeholder="Phone Number"/>
+      </mat-form-field>
+      <div class="form-error" *ngIf="submitted && form.phoneNumber.errors">
+        <div *ngIf="form.phoneNumber.errors?.required">Phone number is required</div>
+        <div *ngIf="form.phoneNumber.errors?.pattern">Invalid Phone number</div>
+      </div>
+    </div>
+    <div>
+      <mat-form-field [ngClass]="{ 'has-error': submitted && form.birthDate.errors }">
+        <input matInput [matDatepicker]="picker" type="text" formControlName="birthDate" placeholder="Birth Date"/>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div class="form-error" *ngIf="submitted && form.birthDate.errors">
+        <div *ngIf="form.birthDate.errors?.required">Birth date is required</div>
+      </div>
+    </div>
+    <div form-group class="form-button-wrappper">
+      <button mat-button class="cancel-button" (click)="closeDialog()">Cancel</button>
+      <button mat-button class="submit-button" type="submit" style="margin-left: auto">
+        Update Account
+      </button>
+    </div>
+  </form>
+</div>

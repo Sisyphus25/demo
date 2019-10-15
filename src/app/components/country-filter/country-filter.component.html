@@ -1,3 +1,27 @@
-<p>
-  country-filter works!
-</p>
+<div>
+  <div>
+    <div *ngFor="let character of ALPHABET"
+         class="selectable-character interactive"
+         [class.selected-character]="character==selectedCharacter"
+         (click)="selectedCharacter=character">
+      {{character}}
+    </div>
+  </div>
+  <div>
+    <div *ngFor="let country of COUNTRY_LIST"
+         class="selectable-country-wrapper"
+         (click)="toggleCountrySelection(country.name)">
+      <div *ngIf="country.name[0]==selectedCharacter"
+           class="selectable-country interactive"
+           [class.is-selected]="isCountrySelected(country)">
+        {{country.name}}
+      </div>
+    </div>
+  </div>
+  <div style="display: flex; flex-wrap: wrap; margin-top: 7px">
+    <div *ngFor="let country of selectedCountries" class="selected-country">
+        <div style="color: #c91b26;">{{country}}</div>
+        <mat-icon (click)="toggleCountrySelection(country)" class="interactive">cancel</mat-icon>
+    </div>
+  </div>
+</div>

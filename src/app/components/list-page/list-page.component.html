@@ -1,1 +1,99 @@
-<app-navbar clientName="Client"></app-navbar>
+<div class="content">
+  <app-navbar clientName="Client"></app-navbar>
+  <div class="content-wrapper">
+    <div class="row" style="height:100%; max-width: 100%; margin: 0 !important;">
+      <div class="side-menu d-none d-lg-block col-lg-2">
+        <div class="side-menu-option">
+          Cases
+        </div>
+        <div class="side-menu-option">
+          Create
+        </div>
+        <div class="side-menu-option">
+          Admin
+        </div>
+      </div>
+      <div class="list-container col-lg-10">
+        <div class="list-filters">
+          <div class="row" style="padding-bottom: 5px">
+            <div class="col-4 col-lg-2">
+              <div class="filter-title">Status</div>
+              <div class="filter-status">{{caseStatus}} cases</div>
+            </div>
+            <div class="col-4 col-lg-2">
+              <div class="filter-title">Country</div>
+              <div class="filter-status">{{filteredCountries.length}} countries</div>
+            </div>
+            <div class="col-4 col-lg-2">
+              <button mat-button (click)="resetFilters()">
+                Reset filters
+              </button>
+            </div>
+            <div class="col-12 col-lg-6">
+              <input class="search-bar" placeholder="Search by name" [(ngModel)]="searchString" (ngModelChange)="filterUsers()">
+            </div>
+          </div>
+          <div style="padding: 10px 0">
+            <button mat-button class="case-button"
+                    [class.selected]="caseStatus==='All'"
+                    (click)="caseStatus='All'; filterUsers()">
+              All cases
+            </button>
+            <button mat-button class="case-button"
+                    [class.selected]="caseStatus==='Complete'"
+                    (click)="caseStatus='Complete'; filterUsers()">
+              Complete
+            </button>
+            <button mat-button class="case-button"
+                    [class.selected]="caseStatus==='Incomplete'"
+                    (click)="caseStatus='Incomplete'; filterUsers()">
+              Incomplete
+            </button>
+          </div>
+          <app-country-filter (countriesListUpdated)="updateFilterCountry($event)"
+                              [events]="emptyCountryList.asObservable()">
+          </app-country-filter>
+        </div>
+        <div class="list-record">
+          <div class="record-headers row">
+            <div class="header col-1 checkbox-cell">
+              <mat-checkbox (change)="updateCheckList($event)"></mat-checkbox>
+            </div>
+            <div class="header col-lg-1 d-none d-lg-block">IMG</div>
+            <div class="header col-4 col-md-2 interactive"
+                 (click)="sortByFirstName()">First Name</div>
+            <div class="header col-4 col-md-2 interactive"
+                 (click)="sortByLastName()">Last Name</div>
+            <div class="header col-md-2 d-none d-md-block">Birth Date</div>
+            <div class="header col-md-2 col-xl-2 d-none d-md-block"
+                 (click)="sortByCountry()">Country</div>
+            <div class="header col-md-2 col-lg-1 d-none d-md-block">Status</div>
+            <div class="header col-3 col-md-1">Action</div>
+          </div>
+          <div *ngFor="let user of filteredUsers | slice:page*3:page*3+3; let i=index"
+               class="row" style="margin: 0 !important;">
+            <div class="cell col-1 checkbox-cell">
+              <mat-checkbox [(ngModel)]="checkedItems[i]"></mat-checkbox>
+            </div>
+            <div class="cell col-lg-1 d-none d-lg-block"></div>
+            <div class="cell col-4 col-md-2">{{user.firstName}}</div>
+            <div class="cell col-4 col-md-2">{{user.lastName}}</div>
+            <div class="cell col-md-2 col-lg-2 d-none d-md-block">{{getBirthDate(user.birthDate) | date:"MM/dd/yyyy"}}</div>
+            <div class="cell col-md-2 d-none d-md-block">{{user.country}}</div>
+            <div class="cell col-md-2 col-lg-1 d-none d-md-block">{{user.status}}</div>
+            <div class="cell col-3 col-md-1">
+              <mat-icon class="interactive" (click)="editUserDetails(user)">edit</mat-icon>
+            </div>
+          </div>
+        </div>
+        <div class="pager">
+          <button class="pager-button" (click)="updatePage(page-1)">Previous</button>
+          <button class="pager-button" (click)="updatePage(page)">{{page+1}}</button>
+          <button class="pager-button" (click)="updatePage(page+1)">{{page+2}}</button>
+          <button class="pager-button" (click)="updatePage(page+2)">{{page+3}}</button>
+          <button class="pager-button" (click)="updatePage(page+1)">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,16 +1,18 @@
 <nav class="navbar navbar-expand-lg">
-  <div>{{clientName}}</div>
-  <mat-divider [vertical]="true"></mat-divider>
-  <div>RedBlack Ltd.</div>
-  <div class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Item 1</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="#">Item 2</a>
-      </li>
-    </ul>
+  <div class="client-name">{{clientName}}</div>
+  <mat-divider vertical></mat-divider>
+  <div class="company-name">RedBlack Ltd.</div>
+  <div style="margin-left: auto">
+    <div class="d-md-none d-large-none d-xl-none">
+      <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Settings</button>
+        <button mat-menu-item (click)="logout()">Log out</button>
+      </mat-menu>
+    </div>
+    <div class="d-none d-md-block">
+      <button mat-button style="display: inline-block; margin-right: 10px">Settings</button>
+      <button mat-button style="display: inline-block" (click)="logout()">Log out</button>
+    </div>
   </div>
 </nav>
